@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Airlines — オーストラリアキャンペーン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange-cta:     #f08800;
+      --orange-cta-hi:  #ffa033;
+      --orange-soft:    #f5b24a;
+      --orange-deep:    #e8a23d;
+      --peach-intro:    #f7cf7a;
+      --peach-deep:     #e8b85c;
+      --yellow-card:    #fff44f;
+      --yellow-pop:     #ffef3a;
+      --white:          #fff;
+      --text-dark:      #1a1a1a;
+      --text-muted:     #4a4a4a;
+      --header-h:       58px;
+      --radius-card:    20px;
+      --radius-card-lg: 26px;
+      --ease-out:       cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-xs:      0 1px 2px rgba(17, 19, 22, 0.04);
+      --shadow-sm:      0 4px 12px rgba(17, 19, 22, 0.07);
+      --shadow-md:      0 12px 32px rgba(17, 19, 22, 0.12);
+      --focus-ring:     0 0 0 2px var(--white), 0 0 0 4px rgba(240, 136, 0, 0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    a:focus-visible,
+    button:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+      border-radius: 4px;
+    }
+    .trial .cta:focus-visible,
+    .coupon-cta a:focus-visible,
+    .slider-btn:focus-visible { border-radius: 999px; }
+
+    /* ========== Header ========== */
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 300;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      border-bottom: 1px solid rgba(17, 19, 22, 0.06);
+      box-shadow: var(--shadow-xs);
+    }
+
+    @media (min-width: 769px) {
+      header { padding: 0 clamp(28px, 4vw, 48px); }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-img {
+      display: block;
+      height: auto;
+      max-height: 44px;
+      width: auto;
+      max-width: min(220px, 52vw);
+      object-fit: contain;
+      object-position: left center;
+    }
+    .logo-fallback {
+      font-size: 13px;
+      font-weight: 700;
+      color: #003087;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: clamp(18px, 2.5vw, 28px);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-left: auto;
+    }
+    .nav-desktop a {
+      text-decoration: none;
+      color: var(--text-dark);
+      opacity: 0.88;
+      transition: color 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+    }
+    .nav-desktop a:hover {
+      color: var(--orange-cta);
+      opacity: 1;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 10px;
+      transition: background 0.3s var(--ease-out);
+      margin-left: auto;
+      position: relative;
+    }
+    .hamburger:hover { background: rgba(17, 19, 22, 0.04); }
+    .hamburger:active { transform: scale(0.92); }
+    .hamburger span {
+      display: block;
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      opacity: 0.88;
+      transition:
+        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.25s ease,
+        top 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .hamburger span:nth-child(1) { top: 12px; }
+    .hamburger span:nth-child(2) { top: 20px; }
+    .hamburger span:nth-child(3) { top: 28px; }
+
+    .hamburger.active span:nth-child(1) {
+      top: 20px;
+      transform: rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.active span:nth-child(3) {
+      top: 20px;
+      transform: rotate(-45deg);
+    }
+
+    .nav-mobile {
+      position: fixed;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      z-index: 299;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(16px) saturate(1.1);
+      -webkit-backdrop-filter: blur(16px) saturate(1.1);
+      flex-direction: column;
+      padding: 0;
+      border-bottom: 1px solid rgba(17, 19, 22, 0.06);
+      box-shadow: 0 12px 32px rgba(17, 19, 22, 0.10);
+      font-size: 15px;
+      display: flex;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition:
+        max-height 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      pointer-events: none;
+    }
+    .nav-mobile.open {
+      max-height: 300px;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      padding: 8px 0 16px;
+    }
+    .nav-mobile a {
+      padding: 15px 24px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(17, 19, 22, 0.04);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition:
+        background 0.2s var(--ease-out),
+        opacity 0.35s var(--ease-out),
+        transform 0.35s var(--ease-out);
+    }
+    .nav-mobile.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .nav-mobile.open a:nth-child(1) { transition-delay: 0.06s; }
+    .nav-mobile.open a:nth-child(2) { transition-delay: 0.12s; }
+    .nav-mobile.open a:nth-child(3) { transition-delay: 0.18s; }
+    .nav-mobile a:hover { background: rgba(255, 239, 58, 0.14); }
+    .nav-mobile a:active { background: rgba(255, 239, 58, 0.22); }
+
+    @media (min-width: 769px) {
+      .hamburger { display: none; }
+      .nav-desktop { display: flex; }
+      .nav-mobile {
+        display: none !important;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    main { padding-top: var(--header-h); }
+
+    /* ========== Hero (メインビジュアルスライド) ========== */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: linear-gradient(165deg, #8ec4e0 0%, #6aa6c8 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 32%;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(26, 26, 26, 0.12), transparent);
+    }
+
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: 72vh;
+      min-height: 220px;
+      max-height: 72vh;
+    }
+
+    .hero-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0;
+      transform: scale(1);
+      animation: hero-fade 24s ease-in-out infinite;
+    }
+    .hero-slider img:nth-child(1) { animation-delay: 0s; }
+    .hero-slider img:nth-child(2) { animation-delay: 6s; }
+    .hero-slider img:nth-child(3) { animation-delay: 12s; }
+    .hero-slider img:nth-child(4) { animation-delay: 18s; }
+
+    @keyframes hero-fade {
+      0%       { opacity: 0; transform: scale(1); }
+      4%       { opacity: 1; transform: scale(1); }
+      25%      { opacity: 1; transform: scale(1.04); }
+      29%      { opacity: 0; transform: scale(1.04); }
+      100%     { opacity: 0; transform: scale(1); }
+    }
+
+    /* ========== Intro peach + circle ========== */
+    .intro-peach {
+      position: relative;
+      background: linear-gradient(165deg, var(--peach-intro) 0%, var(--peach-deep) 100%);
+      padding: 52px 24px 60px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .intro-peach .deco-circle {
+      position: absolute;
+      right: -76px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 236px;
+      height: 236px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffffff 0%, rgba(255, 255, 255, 0.92) 55%, rgba(255, 255, 255, 0.82) 100%);
+      box-shadow: 0 24px 48px rgba(17, 19, 22, 0.08);
+      pointer-events: none;
+      animation: float-circle 8s ease-in-out infinite;
+    }
+    @keyframes float-circle {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-54%) translateX(-8px); }
+    }
+    .intro-peach .inner { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; }
+    .intro-peach h1 {
+      color: var(--white);
+      font-size: clamp(18px, 4.2vw, 22px);
+      font-weight: 700;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 2px rgba(17, 19, 22, 0.08);
+    }
+    .intro-peach .sub-link {
+      color: rgba(255, 255, 255, 0.98);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: opacity 0.2s var(--ease-out);
+    }
+    .intro-peach .sub-link:hover { opacity: 0.88; }
+
+    /* ========== Trial / Australia offers ========== */
+    .trial {
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+      padding: 52px 20px 58px;
+      text-align: center;
+    }
+    .trial h2 {
+      font-size: clamp(17px, 3.5vw, 20px);
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 0.02em;
+      color: var(--text-dark);
+    }
+    .trial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    @media (min-width: 900px) {
+      .trial-grid {
+        max-width: 900px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+    .trial-card {
+      background: linear-gradient(165deg, var(--yellow-card) 0%, #f4e82a 100%);
+      border-radius: var(--radius-card);
+      padding: 20px 14px 22px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+    }
+    .trial-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 239, 58, 0.3);
+      border-color: rgba(255, 255, 255, 0.85);
+    }
+    .trial-card .label {
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      line-height: 1.45;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    .trial-card .big {
+      font-size: clamp(20px, 5vw, 24px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .trial-card.placeholder {
+      opacity: 0.72;
+      background: linear-gradient(165deg, rgba(255, 244, 79, 0.55) 0%, rgba(244, 232, 42, 0.35) 100%);
+      box-shadow: none;
+      border-style: dashed;
+      border-color: rgba(17, 19, 22, 0.1);
+    }
+    .trial-card.placeholder:hover { transform: none; }
+
+    .trial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #fff6a3, var(--yellow-pop));
+      margin: 26px auto 0;
+      box-shadow: 0 2px 6px rgba(17, 19, 22, 0.12);
+    }
+    .trial .cta {
+      display: inline-block;
+      margin-top: 30px;
+      background: linear-gradient(180deg, var(--orange-cta-hi) 0%, var(--orange-cta) 100%);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 15px 40px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 24px rgba(240, 136, 0, 0.28), var(--shadow-xs);
+      transition: transform 0.2s var(--ease-out), filter 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    }
+    .trial .cta:hover {
+      filter: brightness(1.06);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(240, 136, 0, 0.36), 0 0 20px rgba(240, 136, 0, 0.15);
+    }
+
+    /* ========== Orange bubble sections ========== */
+    .bubbles {
+      position: relative;
+      background-color: var(--orange-soft);
+      background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 42%),
+        radial-gradient(ellipse 120% 80% at 50% -10%, rgba(255, 255, 255, 0.35), transparent 55%),
+        radial-gradient(circle at 11% 17%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 13%, transparent 13.5%),
+        radial-gradient(circle at 82% 9%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.38) 21%, transparent 21.5%),
+        radial-gradient(circle at 90% 44%, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 17%, transparent 17.5%),
+        radial-gradient(circle at 24% 54%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.28) 24%, transparent 24.5%),
+        radial-gradient(circle at 54% 84%, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.34) 19%, transparent 19.5%);
+      padding: 60px 20px 52px;
+      color: var(--white);
+      text-align: center;
+    }
+    .bubbles::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 35%, rgba(232, 162, 61, 0.14) 100%);
+    }
+    .bubbles > * { position: relative; z-index: 1; }
+
+    .bubbles h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 900;
+      margin-bottom: 14px;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 1px rgba(17, 19, 22, 0.06);
+    }
+    .bubbles .tagline {
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
+      margin-bottom: 10px;
+      opacity: 0.97;
+    }
+    .bubbles .fsc {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 24px 0 28px;
+      letter-spacing: 0.04em;
+      opacity: 0.98;
+    }
+
+    .charms-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    @media (min-width: 700px) {
+      .charms-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+    }
+
+    .charm-card {
+      background: linear-gradient(165deg, #fff24d 0%, var(--yellow-pop) 100%);
+      border-radius: var(--radius-card-lg);
+      padding: 24px 22px 26px;
+      color: var(--text-dark);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+    }
+    .charm-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 239, 58, 0.25);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+    .charm-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 11px;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+    .charm-card p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--text-muted);
+    }
+
+    .company-block {
+      margin-top: 10px;
+      padding-top: 48px;
+      padding-bottom: 68px;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .company-block h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 900;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+    .company-block .sub {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.75;
+      margin-bottom: 26px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.97;
+    }
+    .company-block .body {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 13px;
+      line-height: 2.05;
+      font-weight: 400;
+      opacity: 0.96;
+    }
+    .company-block .body p + p { margin-top: 20px; }
+
+    /* ========== Coupon ========== */
+    .coupon-wrap {
+      background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 55%, #ffffff 100%);
+      padding: 56px 16px 60px;
+    }
+    .coupon-wrap h2 {
+      text-align: center;
+      font-size: clamp(17px, 3.2vw, 22px);
+      font-weight: 900;
+      margin-bottom: 38px;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      color: var(--text-dark);
+    }
+
+    .slider-outer {
+      position: relative;
+      max-width: 1040px;
+      margin: 0 auto 40px;
+      padding: 0 48px;
+    }
+    .slider-viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 2%, #000 98%, transparent 100%);
+    }
+    .slider-track {
+      display: flex;
+      gap: 14px;
+      transition: transform 0.4s var(--ease-out);
+    }
+    .coupon-card {
+      flex: 0 0 min(72vw, 200px);
+      width: min(72vw, 200px);
+      background: linear-gradient(165deg, #fff24d 0%, var(--yellow-pop) 100%);
+      border-radius: var(--radius-card-lg);
+      padding: 22px 16px 24px;
+      text-align: center;
+      min-height: 144px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    }
+    .coupon-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    @media (min-width: 640px) {
+      .coupon-card { flex: 0 0 200px; width: 200px; }
+    }
+    .coupon-card .top {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.55;
+      color: var(--text-dark);
+      margin-bottom: 11px;
+      letter-spacing: 0.02em;
+    }
+    .coupon-card .mid {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .coupon-card.blank {
+      background: linear-gradient(165deg, rgba(255, 239, 58, 0.35) 0%, rgba(255, 239, 58, 0.55) 100%);
+      box-shadow: none;
+      border: 1px dashed rgba(17, 19, 22, 0.12);
+    }
+    .coupon-card.blank:hover { transform: none; }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: linear-gradient(180deg, #fff24d 0%, var(--yellow-pop) 100%);
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(17, 19, 22, 0.2);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s var(--ease-out), filter 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    }
+    .slider-btn:not(:disabled):hover {
+      filter: brightness(1.06);
+      transform: translateY(-50%) scale(1.04);
+      box-shadow: var(--shadow-md);
+    }
+    .slider-btn.prev { left: 0; }
+    .slider-btn.next { right: 0; }
+    .slider-btn:disabled {
+      opacity: 0.38;
+      cursor: default;
+      filter: grayscale(0.15);
+    }
+
+    .coupon-cta {
+      text-align: center;
+    }
+    .coupon-cta a {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--orange-cta-hi) 0%, var(--orange-cta) 100%);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 17px 52px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 10px 28px rgba(240, 136, 0, 0.3), var(--shadow-xs);
+      transition: transform 0.2s var(--ease-out), filter 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    }
+    .coupon-cta a:hover {
+      filter: brightness(1.06);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(240, 136, 0, 0.38), 0 0 24px rgba(240, 136, 0, 0.15);
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      background: linear-gradient(90deg, var(--orange-deep) 0%, var(--orange-soft) 50%, var(--orange-soft) 100%);
+      padding: 18px 22px 20px;
+      text-align: right;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    footer p {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* ========== Loading Screen ========== */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loading-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(240, 136, 0, 0.12);
+      border-top-color: var(--orange-cta);
+      border-right-color: var(--orange-cta-hi);
+      border-radius: 50%;
+      animation: spin 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    .loading-text {
+      margin-top: 18px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      animation: pulse-text 1.6s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulse-text {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* ========== Scroll Reveal ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hamburger span { transition: none; }
+      .nav-mobile {
+        transition: none;
+        transform: none;
+      }
+      .nav-mobile a { transition: none; opacity: 1; transform: none; }
+      .loading-spinner { animation: none; border-top-color: var(--orange-cta); }
+      .loading-text { animation: none; opacity: 1; }
+      .intro-peach .deco-circle { animation: none; }
+      .hero-slider img {
+        animation: none;
+        opacity: 0;
+        transform: none;
+      }
+      .hero-slider img:nth-child(1) {
+        opacity: 1;
+      }
+      .slider-track { transition: none; }
+      .trial-card,
+      .charm-card,
+      .coupon-card,
+      .trial .cta,
+      .coupon-cta a,
+      .slider-btn {
+        transition: none;
+      }
+      .trial-card:hover,
+      .charm-card:hover,
+      .coupon-card:not(.blank):hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+      }
+      .trial .cta:hover,
+      .coupon-cta a:hover {
+        transform: none;
+        filter: none;
+      }
+      .slider-btn:not(:disabled):hover {
+        transform: translateY(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen" aria-live="polite" aria-label="読み込み中">
+  <div class="loading-spinner"></div>
+  <p class="loading-text">Loading...</p>
+</div>
+
+<header>
+  <a class="logo" href="#top" aria-label="トップページへ">
+    <img class="logo-img" src="images/bunner.png" alt=""
+         onerror="this.style.display='none'; document.getElementById('logoText').style.display='block';">
+    <span id="logoText" class="logo-fallback" style="display:none;">CHINA AIRLINES</span>
+  </a>
+
+  <button type="button" class="hamburger" id="menuBtn" aria-label="メニュー" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav-desktop" aria-label="ユーティリティナビ">
+    <a href="#coupon">予約確認</a>
+    <a href="#company">お問い合わせ</a>
+    <a href="#top">ログイン</a>
+  </nav>
+</header>
+
+<nav class="nav-mobile" id="mobileNav" aria-label="モバイルメニュー">
+  <a href="#features">チャイナエアラインの魅力</a>
+  <a href="#company">会社概要</a>
+  <a href="#coupon">クーポン・ご予約</a>
+</nav>
+
+<main id="top">
+  <section class="hero" aria-label="メインビジュアル">
+    <div class="hero-slider" role="region" aria-roledescription="カルーセル" aria-label="メインビジュアルスライド">
+      <img src="images/mainvisual1.png" alt="メインビジュアル 1">
+      <img src="images/mainvisual2.png" alt="メインビジュアル 2">
+      <img src="images/mainvisual3.png" alt="メインビジュアル 3">
+      <img src="images/mainvisual4.png" alt="メインビジュアル 4">
+    </div>
+  </section>
+
+  <section class="intro-peach" aria-label="キャンペーン紹介">
+    <div class="deco-circle" aria-hidden="true"></div>
+    <div class="inner reveal">
+      <h1>オーストラリアで、最高の思い出を<br>作りませんか？</h1>
+      <a class="sub-link" href="#features">詳しくはこちら</a>
+    </div>
+  </section>
+
+  <section class="trial" aria-label="お試しキャンペーン">
+    <h2 class="reveal">今なら無料でお試し！</h2>
+    <div class="trial-grid">
+      <article class="trial-card reveal reveal-delay-1">
+        <span class="label">期間限定キャンペーン</span>
+        <span class="big">30%還元</span>
+      </article>
+      <article class="trial-card reveal reveal-delay-2">
+        <span class="label">サポート体制</span>
+        <span class="big">24時間受付</span>
+      </article>
+      <article class="trial-card reveal reveal-delay-3">
+        <span class="label">お得なクーポン</span>
+        <span class="big">5万円分</span>
+      </article>
+      <article class="trial-card placeholder reveal reveal-delay-4" aria-hidden="true"></article>
+    </div>
+    <div class="trial-dot" aria-hidden="true"></div>
+    <a class="cta reveal" href="#coupon">詳細・お申し込み</a>
+  </section>
+
+  <section class="bubbles" id="features" aria-labelledby="charms-title">
+    <h2 id="charms-title" class="reveal">チャイナエアラインの魅力</h2>
+    <p class="tagline reveal">多様なサービスでお子様がいても安心！！</p>
+    <p class="fsc reveal">FSC 4つの魅力</p>
+    <div class="charms-grid">
+      <article class="charm-card reveal reveal-delay-1">
+        <h3>機内サービスの充実</h3>
+        <p>シートやエンターテインメント、お食事まで、長時間のフライトでもくつろげるよう多彩なサービスをご用意しています。</p>
+      </article>
+      <article class="charm-card reveal reveal-delay-2">
+        <h3>長時間のフライトでも快適に過ごせる</h3>
+        <p>ゆとりの座席空間とスタッフのきめ細やかな対応で、ご家族みんながリラックスして空の旅をお楽しみいただけます。</p>
+      </article>
+      <article class="charm-card reveal reveal-delay-3">
+        <h3>抜群の安心感</h3>
+        <p>安全運航への取り組みとサポート体制で、はじめての海外旅行でも安心してお出かけいただけます。</p>
+      </article>
+      <article class="charm-card reveal reveal-delay-4">
+        <h3>利用者サービスの充実</h3>
+        <p>空港でのサポートやマイルプログラムなど、旅の前後までトータルで快適にお過ごしいただけるサービスを展開しています。</p>
+      </article>
+    </div>
+
+    <div class="company-block" id="company">
+      <h2 class="reveal">会社概要</h2>
+      <p class="sub reveal">はじめての海外旅行でも、家族みんなが安心して楽しめる旅を</p>
+      <div class="body reveal">
+        <p>チャイナエアラインは、台湾を拠点とするフルトラフィック・ネットワークキャリアです。アジア太平洋をはじめ世界各地へ就航し、ビジネスとレジャーのお客様に幅広い選択肢を提供しています。</p>
+        <p>私たちは「安全第一」のもと、快適な機内環境と真心のこもったサービスで、お客様の大切な旅の時間をお手伝いします。これからも多様なニーズに応える航空会社を目指してまいります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="coupon-wrap" id="coupon" aria-labelledby="coupon-heading">
+    <h2 id="coupon-heading" class="reveal">1か月間限定でお得なクーポン配布中！</h2>
+
+    <div class="slider-outer">
+      <button type="button" class="slider-btn prev" id="prevSlide" aria-label="前へ">&#8249;</button>
+      <div class="slider-viewport">
+        <div class="slider-track" id="track">
+          <article class="coupon-card">
+            <p class="top">メールマガジン登録で初回限定</p>
+            <p class="mid">30% OFF</p>
+          </article>
+          <article class="coupon-card">
+            <p class="top">シルバー会員様限定</p>
+            <p class="mid" style="font-size:22px;">無料優待券</p>
+          </article>
+          <article class="coupon-card">
+            <p class="top">家族でのご利用でお得</p>
+            <p class="mid" style="font-size:26px;">5万円分</p>
+          </article>
+          <article class="coupon-card blank" aria-label="クーポン追加予定"></article>
+          <article class="coupon-card blank" aria-label="クーポン追加予定"></article>
+        </div>
+      </div>
+      <button type="button" class="slider-btn next" id="nextSlide" aria-label="次へ">&#8250;</button>
+    </div>
+
+    <div class="coupon-cta">
+      <a href="#">ご予約はこちらから！！</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>CHINA AIRLINE</p>
+</footer>
+
+<script>
+(function () {
+  var loader = document.getElementById('loadingScreen');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      loader.classList.add('hidden');
+    }, 400);
+  });
+
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mobileNav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('open');
+      btn.classList.toggle('active', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var track = document.getElementById('track');
+  var prev = document.getElementById('prevSlide');
+  var next = document.getElementById('nextSlide');
+  if (!track || !prev || !next) return;
+
+  var GAP = 14;
+  var index = 0;
+
+  function stepPx() {
+    var c = track.children[0];
+    return c ? c.getBoundingClientRect().width + GAP : 214;
+  }
+
+  function maxIndex() {
+    var vp = track.parentElement.clientWidth;
+    var tw = track.scrollWidth;
+    var over = Math.max(0, tw - vp);
+    if (over <= 0) return 0;
+    return Math.ceil(over / stepPx());
+  }
+
+  function update() {
+    var mx = maxIndex();
+    if (index > mx) index = mx;
+    track.style.transform = 'translateX(' + (-index * stepPx()) + 'px)';
+    prev.disabled = index <= 0;
+    next.disabled = index >= mx;
+  }
+
+  prev.addEventListener('click', function () {
+    if (index > 0) { index--; update(); }
+  });
+  next.addEventListener('click', function () {
+    if (index < maxIndex()) { index++; update(); }
+  });
+  window.addEventListener('resize', function () {
+    index = 0;
+    update();
+  });
+  update();
+
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
