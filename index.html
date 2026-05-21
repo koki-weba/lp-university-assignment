@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Airlines — 家族で安心の空の旅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-label="ページを読み込み中">
+  <div class="page-loader__inner">
+    <div class="page-loader__logo-wrap">
+      <img
+        class="page-loader__logo"
+        src="images/china_airlines_transparent 2.png"
+        alt="China Airlines"
+        width="200"
+        height="60"
+        onerror="this.style.display='none'; var el=this.nextElementSibling; if(el){ el.style.display='block'; }"
+      >
+      <p class="page-loader__logo-text" style="display:none;">CHINA AIRLINES</p>
+    </div>
+    <div class="page-loader__spinner" aria-hidden="true">
+      <span class="page-loader__ring"></span>
+      <span class="page-loader__ring page-loader__ring--delay"></span>
+    </div>
+    <div class="page-loader__progress" aria-hidden="true">
+      <span class="page-loader__progress-bar"></span>
+    </div>
+    <p class="page-loader__label">Loading</p>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <nav class="nav-desktop" aria-label="メインナビゲーション">
+      <a href="#features">チャイナエアラインについて</a>
+      <a href="#company">よくある質問</a>
+      <a href="#coupon">マイページ</a>
+    </nav>
+    <button type="button" class="hamburger" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nav-mobile" id="mobileNav" aria-label="モバイルメニュー" aria-hidden="true">
+  <a href="#features">チャイナエアラインについて</a>
+  <a href="#company">よくある質問</a>
+  <a href="#coupon">マイページ</a>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="hero" aria-label="メインビジュアル">
+    <div class="hero-bg" id="heroBg" role="presentation"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-copy reveal">
+        <span class="hero-line">心に残る、原体験を。</span>
+        <span class="hero-line">一生物の、思い出を</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 魅力 -->
+  <section class="section-peach charms" id="features" aria-labelledby="charms-title">
+    <div class="deco-circle deco-circle--tl" data-parallax="0.35" aria-hidden="true">
+      <img src="images/Mask group (1).png" alt="" width="400" height="400" loading="lazy">
+    </div>
+    <div class="deco-circle deco-circle--tr" data-parallax="0.28" aria-hidden="true">
+      <img src="images/Mask group.png" alt="" width="400" height="400" loading="lazy">
+    </div>
+
+    <div class="container section-inner">
+      <div class="heading-pill reveal">
+        <h2 id="charms-title">チャイナエアラインの魅力</h2>
+      </div>
+      <p class="section-lead reveal">多様なサービスでお子様がいても安心！！</p>
+      <p class="section-sub reveal">FSC 4つの魅力</p>
+
+      <div class="charms-grid">
+        <article class="charm-card reveal reveal-delay-1">
+          <h3>機内サービスの充実</h3>
+          <p>シートやエンターテインメント、お食事まで、長時間のフライトでもくつろげるよう多彩なサービスをご用意しています。お子様向けのコンテンツやキッズミールも充実しており、ご家族みんなが快適にお過ごしいただけます。</p>
+        </article>
+        <article class="charm-card reveal reveal-delay-2">
+          <h3>長時間のフライトでも快適に過ごせる</h3>
+          <p>ゆとりのある座席空間と、きめ細やかな客室乗務員のおもてなしで、疲れを感じにくい空の旅を実現。お子様連れのお客様にも配慮したサポートで、安心して長距離フライトをお楽しみください。</p>
+        </article>
+        <article class="charm-card reveal reveal-delay-3">
+          <h3>旅先の安心感</h3>
+          <p>現地到着後も、提携サービスやサポート窓口を通じて安心の旅をサポート。はじめての海外旅行でも、ご家族が安心して観光や滞在を楽しめる体制を整えています。</p>
+        </article>
+        <article class="charm-card reveal reveal-delay-4">
+          <h3>利用者サービスの充実</h3>
+          <p>空港でのサポート、マイルプログラム、各種手続きのご案内まで、旅の前後をトータルでサポート。ご利用者の声を反映したサービス改善を続け、より快適な体験をお届けします。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社概要 -->
+  <section class="section-peach company" id="company" aria-labelledby="company-title">
+    <div class="deco-circle deco-circle--side deco-circle--left" data-parallax="0.45" aria-hidden="true">
+      <img src="images/Mask group (2).png" alt="" width="560" height="560" loading="lazy">
+    </div>
+    <div class="deco-circle deco-circle--side deco-circle--right" data-parallax="0.4" aria-hidden="true">
+      <img src="images/Mask group (3).png" alt="" width="560" height="560" loading="lazy">
+    </div>
+
+    <div class="container section-inner company-inner">
+      <h2 id="company-title" class="company-title reveal">会社概要</h2>
+      <p class="section-lead reveal">はじめての海外旅行でも、家族みんなが安心して楽しめる旅を</p>
+      <div class="company-body reveal">
+        <p>チャイナエアラインは、台湾を拠点とするフルトラフィック・ネットワークキャリアです。アジア太平洋をはじめ世界各地へ就航し、ビジネスとレジャーのお客様に幅広い選択肢を提供しています。</p>
+        <p>私たちは「安全第一」のもと、快適な機内環境と真心のこもったサービスで、お客様の大切な旅の時間をお手伝いします。お子様連れのご家族にも配慮したサービスを充実させ、これからも多様なニーズに応える航空会社を目指してまいります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- クーポン -->
+  <section class="section-white coupon" id="coupon" aria-labelledby="coupon-title">
+    <div class="deco-circle deco-circle--coupon" aria-hidden="true">
+      <img src="images/Mask group (4).png" alt="" width="360" height="360" loading="lazy">
+    </div>
+
+    <div class="container section-inner">
+      <h2 id="coupon-title" class="coupon-title reveal">1か月間限定でお得なクーポン配布中！</h2>
+
+      <div class="slider-outer reveal">
+        <button type="button" class="slider-btn prev" id="prevSlide" aria-label="前のクーポン">&#8249;</button>
+        <div class="slider-viewport" id="sliderViewport">
+          <div class="slider-track" id="sliderTrack">
+            <article class="coupon-card">
+              <p class="coupon-card__label">メールマガジン登録で初回限定</p>
+              <p class="coupon-card__value">30% OFF</p>
+            </article>
+            <article class="coupon-card">
+              <p class="coupon-card__label">シルバー会員様限定</p>
+              <p class="coupon-card__value coupon-card__value--sm">無料優待券</p>
+            </article>
+            <article class="coupon-card">
+              <p class="coupon-card__label">家族でのご利用でお得</p>
+              <p class="coupon-card__value coupon-card__value--md">5万円分</p>
+            </article>
+            <article class="coupon-card">
+              <p class="coupon-card__label">ゴールド会員様限定</p>
+              <p class="coupon-card__value">25% OFF</p>
+            </article>
+            <article class="coupon-card">
+              <p class="coupon-card__label">キャンペーン限定</p>
+              <p class="coupon-card__value coupon-card__value--sm">限定グッズ</p>
+            </article>
+          </div>
+        </div>
+        <button type="button" class="slider-btn next" id="nextSlide" aria-label="次のクーポン">&#8250;</button>
+      </div>
+
+      <div class="coupon-cta reveal">
+        <a href="https://www.china-airlines.com/jp/jp" class="btn-cta" target="_blank" rel="noopener noreferrer">ご予約はこちらから！！</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>CHINA AIRLINES</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
