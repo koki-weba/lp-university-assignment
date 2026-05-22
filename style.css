@@ -256,7 +256,7 @@ button {
 .hero-bg {
   position: absolute;
   inset: -8% 0 0 0;
-  background-image: url("images/mainvisual1.png");
+  background-image: url("images/mainvisual5.png");
   background-size: cover;
   background-position: center 35%;
   will-change: transform;
