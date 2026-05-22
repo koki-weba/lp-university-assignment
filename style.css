@@ -253,13 +253,24 @@ button {
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-slideshow {
   position: absolute;
   inset: -8% 0 0 0;
-  background-image: url("images/mainvisual5.png");
+  will-change: transform;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center 35%;
-  will-change: transform;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
 }
 
 .hero-overlay {
@@ -922,9 +933,21 @@ button:focus-visible {
     transition: none;
   }
 
-  .hero-bg,
+  .hero-slideshow,
   .deco-circle {
     transform: none !important;
+  }
+
+  .hero-slide {
+    transition: none;
+  }
+
+  .hero-slide:not(:first-child) {
+    opacity: 0;
+  }
+
+  .hero-slide:first-child {
+    opacity: 1;
   }
 
   .slider-track,
