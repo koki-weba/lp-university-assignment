@@ -28,7 +28,7 @@
   --text-dark: #1a1a1a;
   --text-muted: #4a4a4a;
 
-  --header-h: 64px;
+  --header-h: 80px;
   --radius-card: 22px;
   --radius-pill: 999px;
   --radius-cta: 48px;
@@ -87,27 +87,12 @@ button {
   display: flex;
   align-items: center;
   background: transparent;
-  transition:
-    background-color 0.5s var(--ease-out),
-    box-shadow 0.5s var(--ease-out),
-    backdrop-filter 0.5s var(--ease-out);
-}
-
-.site-header.is-scrolled {
-  background-color: rgba(245, 199, 106, 0.94);
-  backdrop-filter: blur(12px) saturate(1.15);
-  -webkit-backdrop-filter: blur(12px) saturate(1.15);
-  box-shadow: 0 2px 16px rgba(17, 19, 22, 0.08);
-}
-
-.site-header.is-scrolled .hamburger span {
-  background-color: var(--text-dark);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   gap: 16px;
 }
@@ -126,10 +111,6 @@ button {
 
 .hamburger:hover {
   background: rgba(255, 255, 255, 0.12);
-}
-
-.site-header.is-scrolled .hamburger:hover {
-  background: rgba(17, 19, 22, 0.06);
 }
 
 .hamburger span {
@@ -294,11 +275,14 @@ button {
 }
 
 .hero-banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  width: clamp(140px, 18vw, 280px);
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.hero-banner img {
+  display: block;
+  width: clamp(120px, 16vw, 240px);
   height: auto;
   object-fit: contain;
 }

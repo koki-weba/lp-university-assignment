@@ -58,16 +58,8 @@
   /* Header: scroll state + mobile menu                                  */
   /* ------------------------------------------------------------------ */
   function initHeader() {
-    var header = document.getElementById("siteHeader");
     var menuBtn = document.getElementById("menuBtn");
     var mobileNav = document.getElementById("mobileNav");
-    var hero = document.getElementById("hero");
-
-    function updateHeader() {
-      if (!header) return;
-      var threshold = hero ? hero.offsetHeight * 0.15 : 80;
-      header.classList.toggle("is-scrolled", window.scrollY > threshold);
-    }
 
     if (menuBtn && mobileNav) {
       menuBtn.addEventListener("click", function () {
@@ -86,9 +78,6 @@
         });
       });
     }
-
-    window.addEventListener("scroll", updateHeader, { passive: true });
-    updateHeader();
   }
 
   /* ------------------------------------------------------------------ */
