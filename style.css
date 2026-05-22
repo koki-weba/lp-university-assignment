@@ -100,10 +100,6 @@ button {
   box-shadow: 0 2px 16px rgba(17, 19, 22, 0.08);
 }
 
-.site-header.is-scrolled .nav-desktop a {
-  color: var(--text-dark);
-}
-
 .site-header.is-scrolled .hamburger span {
   background-color: var(--text-dark);
 }
@@ -114,29 +110,6 @@ button {
   justify-content: flex-end;
   width: 100%;
   gap: 16px;
-}
-
-.nav-desktop {
-  display: none;
-  align-items: center;
-  gap: clamp(20px, 2.8vw, 36px);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-.nav-desktop a {
-  color: var(--white);
-  opacity: 0.95;
-  transition:
-    color 0.45s var(--ease-out),
-    opacity 0.25s var(--ease-out),
-    transform 0.25s var(--ease-out);
-}
-
-.nav-desktop a:hover {
-  opacity: 1;
-  transform: translateY(-1px);
 }
 
 .hamburger {
@@ -192,7 +165,7 @@ button {
   transform: rotate(-45deg);
 }
 
-.nav-mobile {
+.nav-dropdown {
   position: fixed;
   top: var(--header-h);
   left: 0;
@@ -208,7 +181,7 @@ button {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   transition:
     max-height 0.45s cubic-bezier(0.23, 1, 0.32, 1),
     opacity 0.35s ease,
@@ -216,14 +189,14 @@ button {
   pointer-events: none;
 }
 
-.nav-mobile.is-open {
+.nav-dropdown.is-open {
   max-height: 280px;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.nav-mobile a {
+.nav-dropdown a {
   padding: 16px var(--margin);
   font-size: 15px;
   font-weight: 500;
@@ -231,14 +204,23 @@ button {
   transition: background 0.2s var(--ease-out);
 }
 
-.nav-mobile a:hover {
+.nav-dropdown a:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown a:hover {
   background: rgba(255, 239, 58, 0.2);
 }
 
 @media (min-width: 769px) {
-  .nav-desktop { display: flex; }
-  .hamburger { display: none; }
-  .nav-mobile { display: none !important; }
+  .nav-dropdown a {
+    padding: 18px clamp(24px, 4vw, 48px);
+    font-size: 16px;
+  }
+
+  .nav-dropdown.is-open {
+    max-height: 220px;
+  }
 }
 
 /* ==========================================================================
@@ -956,7 +938,7 @@ button:focus-visible {
   .btn-cta,
   .slider-btn,
   .hamburger span,
-  .nav-mobile,
+  .nav-dropdown,
   .site-header {
     transition: none;
   }
