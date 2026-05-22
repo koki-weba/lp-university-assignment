@@ -691,21 +691,39 @@ button {
    Footer
    ========================================================================== */
 .site-footer {
-  background: linear-gradient(165deg, var(--peach) 0%, var(--peach-deep) 100%);
-  padding: 24px var(--margin) 28px;
+  margin-top: 0;
 }
 
-.site-footer .container {
+/* リンク行（下のオレンジ帯の直上・白背景の上に表示） */
+.site-footer__nav {
+  background: #ffffff;
+  padding: 40px var(--margin);
+}
+
+.site-footer__nav .container {
   text-align: center;
 }
 
 .site-footer__links {
+  margin: 0;
+  padding: 18px 24px;
   color: #ffffff;
   font-size: clamp(13px, 1.8vw, 15px);
   font-weight: 700;
   line-height: 1.6;
   letter-spacing: 0.04em;
-  margin-bottom: 16px;
+  background: linear-gradient(180deg, var(--orange-light) 0%, var(--orange) 100%);
+  border-radius: 12px;
+}
+
+/* 下段：オレンジのフッター */
+.site-footer__bar {
+  background: linear-gradient(165deg, var(--peach) 0%, var(--peach-deep) 100%);
+  padding: 20px var(--margin) 24px;
+}
+
+.site-footer__bar .container {
+  text-align: right;
 }
 
 .site-footer__brand {
