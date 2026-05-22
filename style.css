@@ -194,6 +194,10 @@ button {
 }
 
 @media (min-width: 769px) {
+  .hamburger span {
+    background-color: #000000;
+  }
+
   .nav-dropdown {
     left: auto;
     right: max(var(--margin), calc((100vw - var(--content-max)) / 2 + var(--margin)));
