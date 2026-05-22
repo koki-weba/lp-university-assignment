@@ -238,6 +238,9 @@ button {
 .hero-slideshow {
   position: absolute;
   inset: -8% 0 0 0;
+  width: 100%;
+  min-height: 100%;
+  background: #1a1a1a;
   will-change: transform;
 }
 
@@ -248,11 +251,21 @@ button {
   background-position: center 35%;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  animation: heroSlideFade 25s infinite;
 }
 
-.hero-slide.is-active {
-  opacity: 1;
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 5s; }
+.hero-slide:nth-child(3) { animation-delay: 10s; }
+.hero-slide:nth-child(4) { animation-delay: 15s; }
+.hero-slide:nth-child(5) { animation-delay: 20s; }
+
+@keyframes heroSlideFade {
+  0% { opacity: 0; }
+  6% { opacity: 1; }
+  20% { opacity: 1; }
+  26% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .hero-overlay {
@@ -921,10 +934,7 @@ button:focus-visible {
   }
 
   .hero-slide {
-    transition: none;
-  }
-
-  .hero-slide:not(:first-child) {
+    animation: none;
     opacity: 0;
   }
 

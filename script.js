@@ -3,7 +3,6 @@
 
   initLoader();
   initHeader();
-  initHeroSlideshow();
   initParallax();
   initReveal();
   initSlider();
@@ -90,37 +89,6 @@
 
     window.addEventListener("scroll", updateHeader, { passive: true });
     updateHeader();
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Hero slideshow (mainvisual1–5)                                        */
-  /* ------------------------------------------------------------------ */
-  function initHeroSlideshow() {
-    var slideshow = document.getElementById("heroBg");
-    if (!slideshow) return;
-
-    var slides = slideshow.querySelectorAll(".hero-slide");
-    if (slides.length < 2) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      slides.forEach(function (slide, i) {
-        slide.classList.toggle("is-active", i === 0);
-      });
-      return;
-    }
-
-    var current = 0;
-    var INTERVAL_MS = 5000;
-
-    function showSlide(index) {
-      slides[current].classList.remove("is-active");
-      current = index;
-      slides[current].classList.add("is-active");
-    }
-
-    setInterval(function () {
-      showSlide((current + 1) % slides.length);
-    }, INTERVAL_MS);
   }
 
   /* ------------------------------------------------------------------ */
