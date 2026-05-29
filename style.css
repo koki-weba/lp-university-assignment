@@ -970,19 +970,3 @@ button:focus-visible {
     transform: none;
   }
 }
-
-/* ==========================================================================
-   Dify チャットボット（右下の吹き出しボタン）
-   ========================================================================== */
-#dify-chatbot-bubble-button,
-.dify-chatbot-bubble-button--china-airlines {
-  --dify-chatbot-bubble-button-bg-color: var(--orange);
-  --dify-chatbot-bubble-button-bottom: 24px;
-  --dify-chatbot-bubble-button-right: 24px;
-  --dify-chatbot-bubble-button-width: 56px;
-  --dify-chatbot-bubble-button-height: 56px;
-  --dify-chatbot-bubble-button-border-radius: 28px;
-  --dify-chatbot-bubble-button-box-shadow: 0 4px 20px rgba(240, 136, 0, 0.45);
-  --dify-chatbot-bubble-button-hover-transform: scale(1.08);
-  z-index: 250;
-}
