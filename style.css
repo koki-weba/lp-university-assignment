@@ -495,13 +495,13 @@ button {
   margin: 28px auto 0;
   color: var(--white);
   font-size: 13px;
-  line-height: 2.1;
+  line-height: 1.75;
   text-align: center;
   opacity: 0.97;
 }
 
-.company-body p + p {
-  margin-top: 20px;
+.company-body p {
+  margin: 0;
 }
 
 /* ==========================================================================
