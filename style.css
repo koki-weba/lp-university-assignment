@@ -970,3 +970,10 @@ button:focus-visible {
     transform: none;
   }
 }
+
+/* Flowise チャットボット（他要素より前面に表示） */
+flowise-chatbot,
+#flowise-chatbot-bubble-button,
+.flowise-chatbot-bubble {
+  z-index: 9999 !important;
+}
