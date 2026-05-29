@@ -446,6 +446,7 @@ button {
   padding: 26px 24px 28px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-sm);
+  text-align: center;
   transition:
     transform 0.4s var(--ease-spring),
     box-shadow 0.4s var(--ease-out);
@@ -462,7 +463,6 @@ button {
   line-height: 1.5;
   margin-bottom: 12px;
   color: var(--text-dark);
-  text-align: center;
 }
 
 .charm-card p {
