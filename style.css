@@ -604,6 +604,13 @@ button {
   font-size: clamp(24px, 4vw, 30px);
 }
 
+.coupon-card__sub {
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
 .slider-btn {
   position: absolute;
   top: 50%;
